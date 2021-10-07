@@ -6,6 +6,7 @@ import 'leaflet.control.layers.tree/L.Control.Layers.Tree.css'
 import './index.css'
 
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
+import 'leaflet-geosearch/dist/geosearch.css';
 
 const BRTA_ATTRIBUTION = 'Kaartgegevens: © <a href="http://www.cbs.nl">CBS</a>, <a href="http://www.kadaster.nl">Kadaster</a>, <a href="http://openstreetmap.org">OpenStreetMap</a><span class="printhide">-auteurs (<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>).</span>'
 
@@ -58,5 +59,6 @@ const searchControl = new GeoSearchControl({
   autoComplete: true, // optional: true|false  - default true
   autoCompleteDelay: 250, // optional: number  - default 250
   searchLabel: 'Zoek woonplaats', // optional: string - default 'Enter address'
+  showMarker: false,
 });
 map.addControl(searchControl);
