@@ -5,6 +5,9 @@ import 'proj4leaflet'
 import 'leaflet.control.layers.tree/L.Control.Layers.Tree.css'
 import './index.css'
 
+import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
+
+
 const BRTA_ATTRIBUTION = 'Kaartgegevens: © <a href="http://www.cbs.nl">CBS</a>, <a href="http://www.kadaster.nl">Kadaster</a>, <a href="http://openstreetmap.org">OpenStreetMap</a><span class="printhide">-auteurs (<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>).</span>'
 
 function getWMTSLayer (layername, attribution) {
@@ -47,3 +50,14 @@ var baseLayers = {
 }
 
 L.control.layers(baseLayers).addTo(map) // eslint-disable-line no-undef
+
+// Leaflet GeoSearch (https://github.com/smeijer/leaflet-geosearch):
+const osmProvider = new OpenStreetMapProvider();
+const searchControl = new GeoSearchControl({
+  provider: osmProvider,
+  style: 'bar', // optional: bar|button  - default button
+  autoComplete: true, // optional: true|false  - default true
+  autoCompleteDelay: 250, // optional: number  - default 250
+  searchLabel: 'Zoek woonplaats', // optional: string - default 'Enter address'
+});
+map.addControl(searchControl);
