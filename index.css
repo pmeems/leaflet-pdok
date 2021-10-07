@@ -1,9 +1,24 @@
 body {
     margin: 0;
     background-color: white;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: rgb(209,213,219);
+}
+section {
+    grid-template-rows: auto 1fr auto;
+}
+header {
+    background-color: rgb(253,242,248);
+    padding: 0.5rem;
 }
 #mapid {
-    height: 100vh;
+    min-height: calc(100vh - 5rem);
+    background-color:aquamarine;
+}
+footer {
+    background-color: rgb(209,213,219);
+    padding: 0.5rem;
 }
 
 .leaflet-container {
