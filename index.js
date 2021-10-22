@@ -2,7 +2,10 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet/dist/leaflet'
 import 'leaflet.control.layers.tree'
 import 'proj4leaflet'
+import 'leaflet-sidebar'
+
 import 'leaflet.control.layers.tree/L.Control.Layers.Tree.css'
+import 'leaflet-sidebar/src/L.Control.Sidebar.css'
 import './index.css'
 
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
@@ -69,7 +72,6 @@ var polygonStyle = {
   "weight": 3,
   "opacity": 0.65
 };
-
 fetch('https://victorious-beach-0b1554903.azurestaticapps.net/api/parcels')
   .then(response => response.json())
   .then(data => {
@@ -79,8 +81,20 @@ fetch('https://victorious-beach-0b1554903.azurestaticapps.net/api/parcels')
     })
     .on('click', function(e){
       console.log(e.sourceTarget.feature);
+      fillSidebar(e.sourceTarget.feature.properties);
       })
     .addTo(map);
-    
+
     map.fitBounds(fields.getBounds());
   });
+
+  // Leaflet Sidebar (https://github.com/Turbo87/leaflet-sidebar):
+  var sidebar = L.control.sidebar('sidebar', {
+    closeButton: true,
+    position: 'right'
+});
+map.addControl(sidebar);
+function fillSidebar(geoJsonProperties){
+  sidebar.setContent(`test <b>${geoJsonProperties.Omvang}</b> test`);
+  sidebar.show();
+}
