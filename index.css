@@ -14,7 +14,6 @@ header {
 }
 #mapid {
     min-height: calc(100vh - 5rem);
-    background-color:aquamarine;
 }
 footer {
     background-color: rgb(209,213,219);

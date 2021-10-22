@@ -62,3 +62,18 @@ const searchControl = new GeoSearchControl({
   showMarker: false,
 });
 map.addControl(searchControl);
+
+// Add GeoJSON:
+var polygonStyle = {
+  "color": "#ff7800",
+  "weight": 5,
+  "opacity": 0.65
+};
+
+fetch('https://victorious-beach-0b1554903.azurestaticapps.net/api/parcels')
+  .then(response => response.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: polygonStyle
+    }).addTo(map);
+  });
