@@ -13,6 +13,7 @@
     "dependencies": {
         "leaflet": "^1.7.1",
         "leaflet-geosearch": "^3.5.2",
+        "leaflet-sidebar": "^0.2.4",
         "leaflet.control.layers.tree": "^1.1.0",
         "proj4js": "^10.0.0",
         "proj4leaflet": "^1.0.2"

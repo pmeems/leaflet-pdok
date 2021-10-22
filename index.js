@@ -76,6 +76,11 @@ fetch('https://victorious-beach-0b1554903.azurestaticapps.net/api/parcels')
     var fields = 
     L.geoJSON(data, {
       style: polygonStyle
-    }).addTo(map);
+    })
+    .on('click', function(e){
+      console.log(e.sourceTarget.feature);
+      })
+    .addTo(map);
+    
     map.fitBounds(fields.getBounds());
   });
